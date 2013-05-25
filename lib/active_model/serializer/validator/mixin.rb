@@ -4,14 +4,14 @@ module ActiveModel
       module Mixin
         extend ActiveSupport::Concern
 
-        # Validate the rendered data against a JSON schema file
-        def valid_against_schema?(schema)
-          JSON::Validator.validate(schema, self.to_json)
+        included do
+          attr_reader :errors
         end
 
         # Return whether the serializer output is valid
         def valid?
-          valid_against_schema?(self.class.json_schema)
+          @errors = self.class.valid_against_schema?(self.class.json_schema, self)
+          @errors.empty?
         end
 
         module ClassMethods
@@ -23,6 +23,12 @@ module ActiveModel
 
             return @_json_schema unless value
             @_json_schema = value
+          end
+
+          # Validate the rendered data against a JSON schema file and
+          # return an errors array
+          def valid_against_schema?(schema, serializer)
+            JSON::Validator.fully_validate(schema, serializer.to_json)
           end
         end
       end
