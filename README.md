@@ -19,17 +19,19 @@ class MySerializer < ActiveModel::Serializer
   json_schema '/path/to/my/schema.jsonschema'
 
   attribute :foo
-  attribute :bar
 end
 
 serializer = MySerializer.new(OpenStruct.new(foo: 'bla'))
+
 serializer.valid?
 # => false
+
+serializer.errors
+# => [The property '#/foo' of type String did not match the following type: integer in schema /path/to/my/schema.jsonschema]
 ```
 
 ## Todo
 
-* Provide more details as to why the validation failed.
 * Add more features! :smile:
 
 ## License
