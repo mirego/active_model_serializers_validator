@@ -12,7 +12,7 @@ gem 'active_model_serializers_validator'
 
 ## Usage
 
-The gem adds one instance method (`#valid?`) and one class method (`.json_schema`) to the `ActiveModel::Serializer` class.
+The gem adds two instance methods (`#valid?` and `errors`) and one class method (`.json_schema`) to the `ActiveModel::Serializer` class.
 
 ### A JSON schema
 
