@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'An extension to ActiveModel::Serializer that validates serializers output against a JSON schema'
   spec.summary       = 'An extension to ActiveModel::Serializer that validates serializers output against a JSON schema'
   spec.homepage      = 'https://github.com/mirego/active_model_serializers_validator'
-  spec.license       = 'MIT'
+  spec.license       = 'New BSD'
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
