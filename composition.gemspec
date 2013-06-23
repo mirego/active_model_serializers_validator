@@ -1,17 +1,17 @@
 # encoding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'active_model/serializer/validator/version'
+require 'composition/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'active_model_serializers_validator'
-  spec.version       = ActiveModel::Serializer::Validator::VERSION
+  spec.name          = 'composition'
+  spec.version       = Composition::VERSION
   spec.authors       = ['Rémi Prévost']
   spec.email         = ['rprevost@mirego.com']
   spec.description   = 'An extension to ActiveModel::Serializer that validates serializers output against a JSON schema'
   spec.summary       = 'An extension to ActiveModel::Serializer that validates serializers output against a JSON schema'
-  spec.homepage      = 'https://github.com/mirego/active_model_serializers_validator'
-  spec.license       = 'New BSD'
+  spec.homepage      = 'https://github.com/mirego/composition'
+  spec.license       = 'BSD-3-Clause'
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
