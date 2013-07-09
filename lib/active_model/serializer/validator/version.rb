@@ -1,7 +1,7 @@
 module ActiveModel
   class Serializer
     module Validator
-      VERSION = '0.1.4'
+      VERSION = '1.0.1'
     end
   end
 end
