@@ -1,8 +1,8 @@
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 
-require 'rspec'
+require "rspec"
 require 'ostruct'
-require 'composition'
+require "active_model_serializers_validator"
 
 # Require everything in `spec/support`
 Dir[File.expand_path('../../spec/support/**/*.rb', __FILE__)].map(&method(:require))
