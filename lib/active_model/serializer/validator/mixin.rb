@@ -22,7 +22,14 @@ module ActiveModel
             end
 
             return @_json_schema unless value
-            @_json_schema = value
+
+            if !value.is_a?(String) && !value.is_a?(Hash)
+              raise InvalidSchemaError.new('Schema must be a path to a file or a Hash.')
+            elsif value.is_a?(String) && !File.exists?(value)
+              raise InvalidSchemaError.new('Schema file does not exist.')
+            else
+              @_json_schema = value
+            end
           end
 
           # Validate the rendered data against a JSON schema file and
