@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ActiveModel::Serializer::Validator do
   describe :valid? do
-    subject { ActiveModel::Serializer.new(OpenStruct.new(:foo => 'bar')) }
+    subject { ActiveModel::Serializer.new(OpenStruct.new(foo: 'bar')) }
     before { ActiveModel::Serializer.stub(:valid_against_schema?).and_return(stubbed_validation) }
 
     context 'with empty errors' do
@@ -31,12 +31,12 @@ describe ActiveModel::Serializer::Validator do
     let(:schema) { product_schema }
 
     context 'without validaton errors' do
-      let(:serializable) { OpenStruct.new(:id => 4, :name => "Widget", :price => 1200, :tags => %w(foo bar baz)) }
+      let(:serializable) { OpenStruct.new(id: 4, name: "Widget", price: 1200, tags: %w(foo bar baz)) }
       it { should be_empty }
     end
 
     context 'with validaton errors' do
-      let(:serializable) { OpenStruct.new(:id => 4, :price => 1200, :tags => %w(foo bar baz)) }
+      let(:serializable) { OpenStruct.new(id: 4, price: 1200, tags: %w(foo bar baz)) }
       it { should_not be_empty }
       its(:length) { should eql 1 }
     end
@@ -60,7 +60,7 @@ describe ActiveModel::Serializer::Validator do
       before { set_schema! }
 
       context 'with valid serializable' do
-        let(:serializable) { OpenStruct.new(:id => 4, :name => "Widget", :price => 1200, :tags => %w(foo bar baz)) }
+        let(:serializable) { OpenStruct.new(id: 4, name: "Widget", price: 1200, tags: %w(foo bar baz)) }
         it { should be_valid }
       end
 
