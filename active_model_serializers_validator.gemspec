@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 2.13'
   spec.add_development_dependency 'json', '~> 1.7.7'
 
-  spec.add_dependency "activesupport", '>= 3.0.0'
+  spec.add_dependency "activesupport", '>= 4.0.0'
   spec.add_dependency "active_model_serializers", '~> 0.8'
   spec.add_dependency "json-schema", '~> 1.1'
 end
