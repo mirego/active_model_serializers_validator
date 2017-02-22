@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ActiveModel::Serializer::Validator do
   describe :valid? do
     subject { ActiveModel::Serializer.new(OpenStruct.new(foo: 'bar')) }
-    before { ActiveModel::Serializer.stub(:valid_against_schema?).and_return(stubbed_validation) }
+    before { allow(ActiveModel::Serializer).to receive(:valid_against_schema?).and_return(stubbed_validation) }
 
     context 'with empty errors' do
       let(:stubbed_validation) { [] }
@@ -21,7 +21,6 @@ describe ActiveModel::Serializer::Validator do
       try_remove_const(:ProductSerializer)
 
       ProductSerializer = Class.new(ActiveModel::Serializer) do
-        self.root = false
         attributes :id, :name, :price, :tags
       end
     end
@@ -50,7 +49,6 @@ describe ActiveModel::Serializer::Validator do
       try_remove_const(:ProductSerializer)
 
       ProductSerializer = Class.new(ActiveModel::Serializer) do
-        self.root = false
         attributes :id, :name, :price, :tags
       end
     end

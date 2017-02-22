@@ -1,6 +1,7 @@
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 
 require "rspec"
+require 'rspec/its'
 require 'ostruct'
 require "active_model_serializers_validator"
 
